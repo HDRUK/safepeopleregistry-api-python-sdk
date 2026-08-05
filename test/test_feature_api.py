@@ -33,20 +33,6 @@ class TestFeatureApi(unittest.TestCase):
         """
         pass
 
-    def test_feature_show(self) -> None:
-        """Test case for feature_show
-
-        Feature@show
-        """
-        pass
-
-    def test_feature_toggle_by_feature_id(self) -> None:
-        """Test case for feature_toggle_by_feature_id
-
-        Feature@show
-        """
-        pass
-
 
 if __name__ == '__main__':
     unittest.main()

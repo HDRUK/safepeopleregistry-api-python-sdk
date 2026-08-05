@@ -33,34 +33,6 @@ class TestCustodianUserApi(unittest.TestCase):
         """
         pass
 
-    def test_custodian_user_destroy(self) -> None:
-        """Test case for custodian_user_destroy
-
-        CustodianUser@destroy
-        """
-        pass
-
-    def test_custodian_user_show(self) -> None:
-        """Test case for custodian_user_show
-
-        CustodianUser@show
-        """
-        pass
-
-    def test_custodian_user_store(self) -> None:
-        """Test case for custodian_user_store
-
-        CustodianUser@store
-        """
-        pass
-
-    def test_custodian_user_update(self) -> None:
-        """Test case for custodian_user_update
-
-        CustodianUser@update
-        """
-        pass
-
 
 if __name__ == '__main__':
     unittest.main()

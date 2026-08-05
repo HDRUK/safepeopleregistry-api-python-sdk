@@ -96,8 +96,8 @@ class VendorWebhookReceiverApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "VendorWebhookReceiverReceive200Response",
-            '400': "AccreditationIndexByRegistryId400Response",
-            '500': "ProjectHasOrganisationShow500Response",
+            '400': "VendorWebhookReceiverReceive400Response",
+            '500': "VendorWebhookReceiverReceive500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -168,8 +168,8 @@ class VendorWebhookReceiverApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "VendorWebhookReceiverReceive200Response",
-            '400': "AccreditationIndexByRegistryId400Response",
-            '500': "ProjectHasOrganisationShow500Response",
+            '400': "VendorWebhookReceiverReceive400Response",
+            '500': "VendorWebhookReceiverReceive500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -240,8 +240,8 @@ class VendorWebhookReceiverApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "VendorWebhookReceiverReceive200Response",
-            '400': "AccreditationIndexByRegistryId400Response",
-            '500': "ProjectHasOrganisationShow500Response",
+            '400': "VendorWebhookReceiverReceive400Response",
+            '500': "VendorWebhookReceiverReceive500Response",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -313,7 +313,7 @@ class VendorWebhookReceiverApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/v1/vendor-webhooks/{provider}',
+            resource_path='/api/v1/webhooks/{provider}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

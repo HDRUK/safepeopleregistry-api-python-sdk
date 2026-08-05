@@ -42,6 +42,7 @@ class QueryApi:
     def query_query(
         self,
         x_client_id: Annotated[StrictStr, Field(description="Custodian client ID used to authenticate the requesting custodian")],
+        x_signature: Annotated[StrictStr, Field(description="HMAC signature of the raw request body, signed with the custodian's unique identifier")],
         query_query_request: Annotated[QueryQueryRequest, Field(description="Query definition")],
         _request_timeout: Union[
             None,
@@ -58,10 +59,12 @@ class QueryApi:
     ) -> QueryQuery200Response:
         """Query@query
 
-        Query the registry by Digital Identifier
+        Query the registry by Digital Identifier. Authenticated via x-client-id/x-signature headers (Custodian client credential + HMAC-signed payload), not a bearer token.
 
         :param x_client_id: Custodian client ID used to authenticate the requesting custodian (required)
         :type x_client_id: str
+        :param x_signature: HMAC signature of the raw request body, signed with the custodian's unique identifier (required)
+        :type x_signature: str
         :param query_query_request: Query definition (required)
         :type query_query_request: QueryQueryRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -88,6 +91,7 @@ class QueryApi:
 
         _param = self._query_query_serialize(
             x_client_id=x_client_id,
+            x_signature=x_signature,
             query_query_request=query_query_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -97,7 +101,7 @@ class QueryApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': "QueryQuery401Response",
-            '404': "AffiliationsIndexByRegistryId404Response",
+            '404': "FeatureIndex404Response",
             '200': "QueryQuery200Response",
         }
         response_data = self.api_client.call_api(
@@ -115,6 +119,7 @@ class QueryApi:
     def query_query_with_http_info(
         self,
         x_client_id: Annotated[StrictStr, Field(description="Custodian client ID used to authenticate the requesting custodian")],
+        x_signature: Annotated[StrictStr, Field(description="HMAC signature of the raw request body, signed with the custodian's unique identifier")],
         query_query_request: Annotated[QueryQueryRequest, Field(description="Query definition")],
         _request_timeout: Union[
             None,
@@ -131,10 +136,12 @@ class QueryApi:
     ) -> ApiResponse[QueryQuery200Response]:
         """Query@query
 
-        Query the registry by Digital Identifier
+        Query the registry by Digital Identifier. Authenticated via x-client-id/x-signature headers (Custodian client credential + HMAC-signed payload), not a bearer token.
 
         :param x_client_id: Custodian client ID used to authenticate the requesting custodian (required)
         :type x_client_id: str
+        :param x_signature: HMAC signature of the raw request body, signed with the custodian's unique identifier (required)
+        :type x_signature: str
         :param query_query_request: Query definition (required)
         :type query_query_request: QueryQueryRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -161,6 +168,7 @@ class QueryApi:
 
         _param = self._query_query_serialize(
             x_client_id=x_client_id,
+            x_signature=x_signature,
             query_query_request=query_query_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -170,7 +178,7 @@ class QueryApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': "QueryQuery401Response",
-            '404': "AffiliationsIndexByRegistryId404Response",
+            '404': "FeatureIndex404Response",
             '200': "QueryQuery200Response",
         }
         response_data = self.api_client.call_api(
@@ -188,6 +196,7 @@ class QueryApi:
     def query_query_without_preload_content(
         self,
         x_client_id: Annotated[StrictStr, Field(description="Custodian client ID used to authenticate the requesting custodian")],
+        x_signature: Annotated[StrictStr, Field(description="HMAC signature of the raw request body, signed with the custodian's unique identifier")],
         query_query_request: Annotated[QueryQueryRequest, Field(description="Query definition")],
         _request_timeout: Union[
             None,
@@ -204,10 +213,12 @@ class QueryApi:
     ) -> RESTResponseType:
         """Query@query
 
-        Query the registry by Digital Identifier
+        Query the registry by Digital Identifier. Authenticated via x-client-id/x-signature headers (Custodian client credential + HMAC-signed payload), not a bearer token.
 
         :param x_client_id: Custodian client ID used to authenticate the requesting custodian (required)
         :type x_client_id: str
+        :param x_signature: HMAC signature of the raw request body, signed with the custodian's unique identifier (required)
+        :type x_signature: str
         :param query_query_request: Query definition (required)
         :type query_query_request: QueryQueryRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -234,6 +245,7 @@ class QueryApi:
 
         _param = self._query_query_serialize(
             x_client_id=x_client_id,
+            x_signature=x_signature,
             query_query_request=query_query_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -243,7 +255,7 @@ class QueryApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '401': "QueryQuery401Response",
-            '404': "AffiliationsIndexByRegistryId404Response",
+            '404': "FeatureIndex404Response",
             '200': "QueryQuery200Response",
         }
         response_data = self.api_client.call_api(
@@ -256,6 +268,7 @@ class QueryApi:
     def _query_query_serialize(
         self,
         x_client_id,
+        x_signature,
         query_query_request,
         _request_auth,
         _content_type,
@@ -282,6 +295,8 @@ class QueryApi:
         # process the header parameters
         if x_client_id is not None:
             _header_params['x-client-id'] = x_client_id
+        if x_signature is not None:
+            _header_params['x-signature'] = x_signature
         # process the form parameters
         # process the body parameter
         if query_query_request is not None:

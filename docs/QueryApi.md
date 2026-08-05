@@ -8,11 +8,11 @@ Method | HTTP request | Description
 
 
 # **query_query**
-> QueryQuery200Response query_query(x_client_id, query_query_request)
+> QueryQuery200Response query_query(x_client_id, x_signature, query_query_request)
 
 Query@query
 
-Query the registry by Digital Identifier
+Query the registry by Digital Identifier. Authenticated via x-client-id/x-signature headers (Custodian client credential + HMAC-signed payload), not a bearer token.
 
 ### Example
 
@@ -36,11 +36,12 @@ with safepeopleregistry_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = safepeopleregistry_api_sdk.QueryApi(api_client)
     x_client_id = '8f14e45f-ceea-467e-adc1-0000example' # str | Custodian client ID used to authenticate the requesting custodian
+    x_signature = 'x_signature_example' # str | HMAC signature of the raw request body, signed with the custodian's unique identifier
     query_query_request = safepeopleregistry_api_sdk.QueryQueryRequest() # QueryQueryRequest | Query definition
 
     try:
         # Query@query
-        api_response = api_instance.query_query(x_client_id, query_query_request)
+        api_response = api_instance.query_query(x_client_id, x_signature, query_query_request)
         print("The response of QueryApi->query_query:\n")
         pprint(api_response)
     except Exception as e:
@@ -55,6 +56,7 @@ with safepeopleregistry_api_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_client_id** | **str**| Custodian client ID used to authenticate the requesting custodian | 
+ **x_signature** | **str**| HMAC signature of the raw request body, signed with the custodian&#39;s unique identifier | 
  **query_query_request** | [**QueryQueryRequest**](QueryQueryRequest.md)| Query definition | 
 
 ### Return type

@@ -44,7 +44,6 @@ class TestUser(unittest.TestCase):
                 email_verified_at = '2024-02-04 12:00:00',
                 consent_scrape = True,
                 public_opt_in = True,
-                declaration_signed = True,
                 organisation_id = 123,
                 orcid_scanning = 1,
                 orcid_scanning_completed_at = '2024-02-04 12:01:00',

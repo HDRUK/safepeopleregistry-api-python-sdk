@@ -36,14 +36,13 @@ class User(BaseModel):
     email_verified_at: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["2024-02-04 12:00:00"]})
     consent_scrape: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
     public_opt_in: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
-    declaration_signed: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
     organisation_id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [123]})
     orcid_scanning: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1]})
     orcid_scanning_completed_at: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["2024-02-04 12:01:00"]})
     location: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["United Kingdom"]})
     t_and_c_agreed: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
     t_and_c_agreement_date: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["2024-02-04 12:00:00"]})
-    __properties: ClassVar[List[str]] = ["id", "created_at", "updated_at", "first_name", "last_name", "email", "email_verified_at", "consent_scrape", "public_opt_in", "declaration_signed", "organisation_id", "orcid_scanning", "orcid_scanning_completed_at", "location", "t_and_c_agreed", "t_and_c_agreement_date"]
+    __properties: ClassVar[List[str]] = ["id", "created_at", "updated_at", "first_name", "last_name", "email", "email_verified_at", "consent_scrape", "public_opt_in", "organisation_id", "orcid_scanning", "orcid_scanning_completed_at", "location", "t_and_c_agreed", "t_and_c_agreement_date"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -105,7 +104,6 @@ class User(BaseModel):
             "email_verified_at": obj.get("email_verified_at"),
             "consent_scrape": obj.get("consent_scrape"),
             "public_opt_in": obj.get("public_opt_in"),
-            "declaration_signed": obj.get("declaration_signed"),
             "organisation_id": obj.get("organisation_id"),
             "orcid_scanning": obj.get("orcid_scanning"),
             "orcid_scanning_completed_at": obj.get("orcid_scanning_completed_at"),

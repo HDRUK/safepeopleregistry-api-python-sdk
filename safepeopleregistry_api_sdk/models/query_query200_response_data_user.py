@@ -32,7 +32,6 @@ class QueryQuery200ResponseDataUser(BaseModel):
     first_name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["Dan"]})
     last_name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["Ackroyd"]})
     name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["Dan Ackroyd"]})
-    email: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["dan.ackroyd@example.com"]})
     registry_id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1]})
     created_at: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["2024-03-12T13:11:55.000000Z"]})
     updated_at: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["2024-03-12T13:11:55.000000Z"]})
@@ -42,7 +41,6 @@ class QueryQuery200ResponseDataUser(BaseModel):
     unclaimed: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [0]})
     feed_source: Optional[StrictStr] = None
     public_opt_in: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [0]})
-    declaration_signed: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [False]})
     organisation_id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [0]})
     orcid_scanning: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [False]})
     orcid_scanning_completed_at: Optional[StrictStr] = None
@@ -54,13 +52,12 @@ class QueryQuery200ResponseDataUser(BaseModel):
     location: Optional[StrictStr] = None
     t_and_c_agreed: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
     t_and_c_agreement_date: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["2024-03-12 13:11:55"]})
-    uksa_registered: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [False]})
     is_sro: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [False]})
     invited_by: Optional[StrictInt] = None
     status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["registered"]})
     evaluation: Optional[StrictStr] = None
     identity: Optional[Identity] = None
-    __properties: ClassVar[List[str]] = ["id", "first_name", "last_name", "name", "email", "registry_id", "created_at", "updated_at", "user_group", "consent_scrape", "orc_id", "unclaimed", "feed_source", "public_opt_in", "declaration_signed", "organisation_id", "orcid_scanning", "orcid_scanning_completed_at", "is_delegate", "is_org_admin", "custodian_id", "custodian_user_id", "role", "location", "t_and_c_agreed", "t_and_c_agreement_date", "uksa_registered", "is_sro", "invited_by", "status", "evaluation", "identity"]
+    __properties: ClassVar[List[str]] = ["id", "first_name", "last_name", "name", "registry_id", "created_at", "updated_at", "user_group", "consent_scrape", "orc_id", "unclaimed", "feed_source", "public_opt_in", "organisation_id", "orcid_scanning", "orcid_scanning_completed_at", "is_delegate", "is_org_admin", "custodian_id", "custodian_user_id", "role", "location", "t_and_c_agreed", "t_and_c_agreement_date", "is_sro", "invited_by", "status", "evaluation", "identity"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -175,7 +172,6 @@ class QueryQuery200ResponseDataUser(BaseModel):
             "first_name": obj.get("first_name"),
             "last_name": obj.get("last_name"),
             "name": obj.get("name"),
-            "email": obj.get("email"),
             "registry_id": obj.get("registry_id"),
             "created_at": obj.get("created_at"),
             "updated_at": obj.get("updated_at"),
@@ -185,7 +181,6 @@ class QueryQuery200ResponseDataUser(BaseModel):
             "unclaimed": obj.get("unclaimed"),
             "feed_source": obj.get("feed_source"),
             "public_opt_in": obj.get("public_opt_in"),
-            "declaration_signed": obj.get("declaration_signed"),
             "organisation_id": obj.get("organisation_id"),
             "orcid_scanning": obj.get("orcid_scanning"),
             "orcid_scanning_completed_at": obj.get("orcid_scanning_completed_at"),
@@ -197,7 +192,6 @@ class QueryQuery200ResponseDataUser(BaseModel):
             "location": obj.get("location"),
             "t_and_c_agreed": obj.get("t_and_c_agreed"),
             "t_and_c_agreement_date": obj.get("t_and_c_agreement_date"),
-            "uksa_registered": obj.get("uksa_registered"),
             "is_sro": obj.get("is_sro"),
             "invited_by": obj.get("invited_by"),
             "status": obj.get("status"),

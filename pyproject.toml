@@ -1,6 +1,6 @@
 [project]
 name = "safepeopleregistry_api_sdk"
-version = "0.0.0-test2"
+version = "1.35.0"
 description = "Safe People Registry API"
 authors = [
   {name = "OpenAPI Generator Community",email = "team@openapitools.org"},

@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **email_verified_at** | **str** |  | [optional] 
 **consent_scrape** | **bool** |  | [optional] 
 **public_opt_in** | **bool** |  | [optional] 
-**declaration_signed** | **bool** |  | [optional] 
 **organisation_id** | **int** |  | [optional] 
 **orcid_scanning** | **int** |  | [optional] 
 **orcid_scanning_completed_at** | **str** |  | [optional] 

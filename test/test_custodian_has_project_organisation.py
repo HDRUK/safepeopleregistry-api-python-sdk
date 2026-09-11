@@ -76,6 +76,8 @@ class TestCustodianHasProjectOrganisation(unittest.TestCase):
                         ce_plus_certified = True, 
                         ce_plus_certification_num = 'NUM1234', 
                         ce_plus_expiry_date = '2026-12-01', 
+                        ce_or_iso_certified = True, 
+                        ce_plus_or_iso_certified = True, 
                         idvt_result = 1, 
                         idvt_result_perc = 100, 
                         idvt_errors = 'Verification failed for XYZ reason', 

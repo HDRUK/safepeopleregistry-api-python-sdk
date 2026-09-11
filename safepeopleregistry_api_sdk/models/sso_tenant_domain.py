@@ -17,22 +17,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
-class EntityModelType(BaseModel):
+class SsoTenantDomain(BaseModel):
     """
-    Model representing types of entity models
+    An email domain routed to a Registry SSO tenant's Identity Provider
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the entity model type", json_schema_extra={"examples": [1]})
-    name: Optional[StrictStr] = Field(default=None, description="Name of the entity model type", json_schema_extra={"examples": ["Decision Models"]})
-    created_at: Optional[datetime] = Field(default=None, description="Timestamp when the entity model type was created", json_schema_extra={"examples": ["2025-06-25T12:00:00Z"]})
-    updated_at: Optional[datetime] = Field(default=None, description="Timestamp when the entity model type was last updated", json_schema_extra={"examples": ["2025-06-25T12:00:00Z"]})
-    __properties: ClassVar[List[str]] = ["id", "name", "created_at", "updated_at"]
+    id: Optional[StrictInt] = Field(default=None, description="Model primary key", json_schema_extra={"examples": [1]})
+    sso_tenant_id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1]})
+    domain: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["acme.com"]})
+    __properties: ClassVar[List[str]] = ["id", "sso_tenant_id", "domain"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -52,7 +50,7 @@ class EntityModelType(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of EntityModelType from a JSON string"""
+        """Create an instance of SsoTenantDomain from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -77,7 +75,7 @@ class EntityModelType(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of EntityModelType from a dict"""
+        """Create an instance of SsoTenantDomain from a dict"""
         if obj is None:
             return None
 
@@ -86,9 +84,8 @@ class EntityModelType(BaseModel):
 
         _obj = cls.model_validate({
             "id": obj.get("id"),
-            "name": obj.get("name"),
-            "created_at": obj.get("created_at"),
-            "updated_at": obj.get("updated_at")
+            "sso_tenant_id": obj.get("sso_tenant_id"),
+            "domain": obj.get("domain")
         })
         return _obj
 

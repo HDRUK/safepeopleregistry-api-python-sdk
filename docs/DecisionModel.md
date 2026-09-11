@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **conditions** | **str** | Conditions for the decision model | 
 **rule_class** | **str** | Class defining the rules for the decision model | 
 **description** | **str** | Description of the decision model | [optional] 
-**entity_model_type_id** | **int** | ID of the entity model type associated with the decision | [optional] 
+**decision_model_type_id** | **int** | ID of the decision model type associated with the decision | [optional] 
 **created_at** | **datetime** | Timestamp when the decision model was created | [optional] 
 **updated_at** | **datetime** | Timestamp when the decision model was last updated | [optional] 
 

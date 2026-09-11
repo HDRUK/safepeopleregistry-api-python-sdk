@@ -79,6 +79,8 @@ class TestQueryQuery200ResponseDataUser(unittest.TestCase):
                     idvt_document_number = '123456789', 
                     idvt_document_country = 'UK', 
                     idvt_document_valid_until = 'Tue Jan 01 00:00:00 UTC 2030', 
+                    idvt_document_first_name = 'Joe', 
+                    idvt_document_valid_last_name = 'Bloggs', 
                     idvt_attempt_id = 'ATT12345', 
                     idvt_context_id = 'CTX12345', 
                     idvt_document_dob = 'Mon Jan 01 00:00:00 UTC 1990', 

@@ -38,7 +38,7 @@ class TestCustodianModelConfig(unittest.TestCase):
                 id = 1,
                 created_at = '2023-10-10T15:03:00Z',
                 updated_at = '2023-10-10T18:03:00Z',
-                entity_model_id = 1,
+                decision_model_id = 1,
                 active = True,
                 custodian_id = 12
             )

@@ -43,6 +43,8 @@ class Identity(BaseModel):
     idvt_document_number: Optional[StrictStr] = Field(default=None, description="Document number used for IDVT", json_schema_extra={"examples": ["123456789"]})
     idvt_document_country: Optional[StrictStr] = Field(default=None, description="Country of the document used for IDVT", json_schema_extra={"examples": ["UK"]})
     idvt_document_valid_until: Optional[date] = Field(default=None, description="Validity date of the document used for IDVT", json_schema_extra={"examples": ["2030-01-01"]})
+    idvt_document_first_name: Optional[StrictStr] = Field(default=None, description="First name on the document used for IDVT", json_schema_extra={"examples": ["Joe"]})
+    idvt_document_valid_last_name: Optional[StrictStr] = Field(default=None, description="Last name on the document used for IDVT", json_schema_extra={"examples": ["Bloggs"]})
     idvt_attempt_id: Optional[StrictStr] = Field(default=None, description="ID of the IDVT attempt", json_schema_extra={"examples": ["ATT12345"]})
     idvt_context_id: Optional[StrictStr] = Field(default=None, description="Context ID for IDVT", json_schema_extra={"examples": ["CTX12345"]})
     idvt_document_dob: Optional[date] = Field(default=None, description="Date of birth on the document used for IDVT", json_schema_extra={"examples": ["1990-01-01"]})
@@ -53,7 +55,7 @@ class Identity(BaseModel):
     created_at: Optional[datetime] = Field(default=None, description="Timestamp when the identity record was created", json_schema_extra={"examples": ["2025-06-25T12:00:00Z"]})
     updated_at: Optional[datetime] = Field(default=None, description="Timestamp when the identity record was last updated", json_schema_extra={"examples": ["2025-06-25T12:00:00Z"]})
     deleted_at: Optional[datetime] = Field(default=None, description="Timestamp when the identity record was deleted", json_schema_extra={"examples": ["2025-06-25T12:00:00Z"]})
-    __properties: ClassVar[List[str]] = ["id", "registry_id", "address_1", "address_2", "town", "county", "country", "postcode", "dob", "idvt_success", "idvt_identification_number", "idvt_document_type", "idvt_document_number", "idvt_document_country", "idvt_document_valid_until", "idvt_attempt_id", "idvt_context_id", "idvt_document_dob", "idvt_context", "idvt_completed_at", "idvt_result_text", "idvt_started_at", "created_at", "updated_at", "deleted_at"]
+    __properties: ClassVar[List[str]] = ["id", "registry_id", "address_1", "address_2", "town", "county", "country", "postcode", "dob", "idvt_success", "idvt_identification_number", "idvt_document_type", "idvt_document_number", "idvt_document_country", "idvt_document_valid_until", "idvt_document_first_name", "idvt_document_valid_last_name", "idvt_attempt_id", "idvt_context_id", "idvt_document_dob", "idvt_context", "idvt_completed_at", "idvt_result_text", "idvt_started_at", "created_at", "updated_at", "deleted_at"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -121,6 +123,8 @@ class Identity(BaseModel):
             "idvt_document_number": obj.get("idvt_document_number"),
             "idvt_document_country": obj.get("idvt_document_country"),
             "idvt_document_valid_until": obj.get("idvt_document_valid_until"),
+            "idvt_document_first_name": obj.get("idvt_document_first_name"),
+            "idvt_document_valid_last_name": obj.get("idvt_document_valid_last_name"),
             "idvt_attempt_id": obj.get("idvt_attempt_id"),
             "idvt_context_id": obj.get("idvt_context_id"),
             "idvt_document_dob": obj.get("idvt_document_dob"),

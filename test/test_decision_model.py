@@ -40,7 +40,7 @@ class TestDecisionModel(unittest.TestCase):
                 conditions = 'status=active',
                 rule_class = 'App\Rules\CustomRule',
                 description = 'Decision model for user validation',
-                entity_model_type_id = 42,
+                decision_model_type_id = 42,
                 created_at = '2025-06-25T12:00Z',
                 updated_at = '2025-06-26T12:00Z'
             )

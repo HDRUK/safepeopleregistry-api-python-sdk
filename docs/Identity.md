@@ -21,6 +21,8 @@ Name | Type | Description | Notes
 **idvt_document_number** | **str** | Document number used for IDVT | [optional] 
 **idvt_document_country** | **str** | Country of the document used for IDVT | [optional] 
 **idvt_document_valid_until** | **date** | Validity date of the document used for IDVT | [optional] 
+**idvt_document_first_name** | **str** | First name on the document used for IDVT | [optional] 
+**idvt_document_valid_last_name** | **str** | Last name on the document used for IDVT | [optional] 
 **idvt_attempt_id** | **str** | ID of the IDVT attempt | [optional] 
 **idvt_context_id** | **str** | Context ID for IDVT | [optional] 
 **idvt_document_dob** | **date** | Date of birth on the document used for IDVT | [optional] 

@@ -33,10 +33,10 @@ class DecisionModel(BaseModel):
     conditions: StrictStr = Field(description="Conditions for the decision model", json_schema_extra={"examples": ["status=active"]})
     rule_class: StrictStr = Field(description="Class defining the rules for the decision model", json_schema_extra={"examples": ["App\\Rules\\CustomRule"]})
     description: Optional[StrictStr] = Field(default=None, description="Description of the decision model", json_schema_extra={"examples": ["Decision model for user validation"]})
-    entity_model_type_id: Optional[StrictInt] = Field(default=None, description="ID of the entity model type associated with the decision", json_schema_extra={"examples": [42]})
+    decision_model_type_id: Optional[StrictInt] = Field(default=None, description="ID of the decision model type associated with the decision", json_schema_extra={"examples": [42]})
     created_at: Optional[datetime] = Field(default=None, description="Timestamp when the decision model was created", json_schema_extra={"examples": ["2025-06-25T12:00:00Z"]})
     updated_at: Optional[datetime] = Field(default=None, description="Timestamp when the decision model was last updated", json_schema_extra={"examples": ["2025-06-26T12:00:00Z"]})
-    __properties: ClassVar[List[str]] = ["id", "model_type", "conditions", "rule_class", "description", "entity_model_type_id", "created_at", "updated_at"]
+    __properties: ClassVar[List[str]] = ["id", "model_type", "conditions", "rule_class", "description", "decision_model_type_id", "created_at", "updated_at"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -94,7 +94,7 @@ class DecisionModel(BaseModel):
             "conditions": obj.get("conditions"),
             "rule_class": obj.get("rule_class"),
             "description": obj.get("description"),
-            "entity_model_type_id": obj.get("entity_model_type_id"),
+            "decision_model_type_id": obj.get("decision_model_type_id"),
             "created_at": obj.get("created_at"),
             "updated_at": obj.get("updated_at")
         })

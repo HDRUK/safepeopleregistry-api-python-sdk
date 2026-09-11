@@ -30,10 +30,10 @@ class CustodianModelConfig(BaseModel):
     id: Optional[StrictInt] = Field(default=None, description="Model primary key", json_schema_extra={"examples": [1]})
     created_at: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["2023-10-10T15:03:00Z"]})
     updated_at: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["2023-10-10T18:03:00Z"]})
-    entity_model_id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1]})
+    decision_model_id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1]})
     active: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
     custodian_id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [12]})
-    __properties: ClassVar[List[str]] = ["id", "created_at", "updated_at", "entity_model_id", "active", "custodian_id"]
+    __properties: ClassVar[List[str]] = ["id", "created_at", "updated_at", "decision_model_id", "active", "custodian_id"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -89,7 +89,7 @@ class CustodianModelConfig(BaseModel):
             "id": obj.get("id"),
             "created_at": obj.get("created_at"),
             "updated_at": obj.get("updated_at"),
-            "entity_model_id": obj.get("entity_model_id"),
+            "decision_model_id": obj.get("decision_model_id"),
             "active": obj.get("active"),
             "custodian_id": obj.get("custodian_id")
         })

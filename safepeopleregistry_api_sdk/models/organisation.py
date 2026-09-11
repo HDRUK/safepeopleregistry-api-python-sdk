@@ -56,6 +56,8 @@ class Organisation(BaseModel):
     ce_plus_certified: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
     ce_plus_certification_num: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["NUM1234"]})
     ce_plus_expiry_date: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["2026-12-01"]})
+    ce_or_iso_certified: Optional[StrictBool] = Field(default=None, description="True if either CE or ISO 27001 certification is currently valid", json_schema_extra={"examples": [True]})
+    ce_plus_or_iso_certified: Optional[StrictBool] = Field(default=None, description="True if either CE+ or ISO 27001 certification is currently valid", json_schema_extra={"examples": [True]})
     idvt_result: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1]})
     idvt_result_perc: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [100]})
     idvt_errors: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["Verification failed for XYZ reason"]})
@@ -74,7 +76,7 @@ class Organisation(BaseModel):
     ico_registration_id: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ABC1234"]})
     ico_date_registered: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["2026-12-01"]})
     ico_expiry_date: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["2026-12-01"]})
-    __properties: ClassVar[List[str]] = ["id", "created_at", "updated_at", "organisation_name", "address_1", "address_2", "town", "county", "country", "postcode", "lead_applicant_organisation_name", "lead_applicant_email", "organisation_unique_id", "applicant_names", "funders_and_sponsors", "sub_license_arrangements", "verified", "dsptk_ods_code", "dsptk_certified", "dsptk_expiry_date", "iso_27001_certified", "iso_27001_certification_num", "iso_expiry_date", "ce_certified", "ce_certification_num", "ce_expiry_date", "ce_plus_certified", "ce_plus_certification_num", "ce_plus_expiry_date", "idvt_result", "idvt_result_perc", "idvt_errors", "idvt_completed_at", "companies_house_no", "sector_id", "ror_id", "website", "smb_status", "organisation_size", "unclaimed", "system_approved", "ods_id", "dsptk_status", "dsptk_date_last_published", "ico_registration_id", "ico_date_registered", "ico_expiry_date"]
+    __properties: ClassVar[List[str]] = ["id", "created_at", "updated_at", "organisation_name", "address_1", "address_2", "town", "county", "country", "postcode", "lead_applicant_organisation_name", "lead_applicant_email", "organisation_unique_id", "applicant_names", "funders_and_sponsors", "sub_license_arrangements", "verified", "dsptk_ods_code", "dsptk_certified", "dsptk_expiry_date", "iso_27001_certified", "iso_27001_certification_num", "iso_expiry_date", "ce_certified", "ce_certification_num", "ce_expiry_date", "ce_plus_certified", "ce_plus_certification_num", "ce_plus_expiry_date", "ce_or_iso_certified", "ce_plus_or_iso_certified", "idvt_result", "idvt_result_perc", "idvt_errors", "idvt_completed_at", "companies_house_no", "sector_id", "ror_id", "website", "smb_status", "organisation_size", "unclaimed", "system_approved", "ods_id", "dsptk_status", "dsptk_date_last_published", "ico_registration_id", "ico_date_registered", "ico_expiry_date"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -156,6 +158,8 @@ class Organisation(BaseModel):
             "ce_plus_certified": obj.get("ce_plus_certified"),
             "ce_plus_certification_num": obj.get("ce_plus_certification_num"),
             "ce_plus_expiry_date": obj.get("ce_plus_expiry_date"),
+            "ce_or_iso_certified": obj.get("ce_or_iso_certified"),
+            "ce_plus_or_iso_certified": obj.get("ce_plus_or_iso_certified"),
             "idvt_result": obj.get("idvt_result"),
             "idvt_result_perc": obj.get("idvt_result_perc"),
             "idvt_errors": obj.get("idvt_errors"),

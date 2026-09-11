@@ -30,11 +30,10 @@ from safepeopleregistry_api_sdk.models.custodian_user_has_permission import Cust
 from safepeopleregistry_api_sdk.models.custodian_webhook_receiver import CustodianWebhookReceiver
 from safepeopleregistry_api_sdk.models.debug_log import DebugLog
 from safepeopleregistry_api_sdk.models.decision_model import DecisionModel
+from safepeopleregistry_api_sdk.models.decision_model_type import DecisionModelType
 from safepeopleregistry_api_sdk.models.department import Department
 from safepeopleregistry_api_sdk.models.education import Education
 from safepeopleregistry_api_sdk.models.endorsement import Endorsement
-from safepeopleregistry_api_sdk.models.entity_model import EntityModel
-from safepeopleregistry_api_sdk.models.entity_model_type import EntityModelType
 from safepeopleregistry_api_sdk.models.experience import Experience
 from safepeopleregistry_api_sdk.models.feature_index200_response import FeatureIndex200Response
 from safepeopleregistry_api_sdk.models.feature_index200_response_data import FeatureIndex200ResponseData
@@ -83,6 +82,8 @@ from safepeopleregistry_api_sdk.models.registry_has_professional_registration im
 from safepeopleregistry_api_sdk.models.registry_has_training import RegistryHasTraining
 from safepeopleregistry_api_sdk.models.resolution import Resolution
 from safepeopleregistry_api_sdk.models.sector import Sector
+from safepeopleregistry_api_sdk.models.sso_tenant import SsoTenant
+from safepeopleregistry_api_sdk.models.sso_tenant_domain import SsoTenantDomain
 from safepeopleregistry_api_sdk.models.state import State
 from safepeopleregistry_api_sdk.models.subsidiary import Subsidiary
 from safepeopleregistry_api_sdk.models.system_config import SystemConfig

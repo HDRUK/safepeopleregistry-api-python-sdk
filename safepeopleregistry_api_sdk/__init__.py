@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.35.0"
+__version__ = "1.36.0"
 
 # Define package exports
 __all__ = [
@@ -49,11 +49,10 @@ __all__ = [
     "CustodianWebhookReceiver",
     "DebugLog",
     "DecisionModel",
+    "DecisionModelType",
     "Department",
     "Education",
     "Endorsement",
-    "EntityModel",
-    "EntityModelType",
     "Experience",
     "FeatureIndex200Response",
     "FeatureIndex200ResponseData",
@@ -102,6 +101,8 @@ __all__ = [
     "RegistryHasTraining",
     "Resolution",
     "Sector",
+    "SsoTenant",
+    "SsoTenantDomain",
     "State",
     "Subsidiary",
     "SystemConfig",
@@ -156,11 +157,10 @@ from safepeopleregistry_api_sdk.models.custodian_user_has_permission import Cust
 from safepeopleregistry_api_sdk.models.custodian_webhook_receiver import CustodianWebhookReceiver as CustodianWebhookReceiver
 from safepeopleregistry_api_sdk.models.debug_log import DebugLog as DebugLog
 from safepeopleregistry_api_sdk.models.decision_model import DecisionModel as DecisionModel
+from safepeopleregistry_api_sdk.models.decision_model_type import DecisionModelType as DecisionModelType
 from safepeopleregistry_api_sdk.models.department import Department as Department
 from safepeopleregistry_api_sdk.models.education import Education as Education
 from safepeopleregistry_api_sdk.models.endorsement import Endorsement as Endorsement
-from safepeopleregistry_api_sdk.models.entity_model import EntityModel as EntityModel
-from safepeopleregistry_api_sdk.models.entity_model_type import EntityModelType as EntityModelType
 from safepeopleregistry_api_sdk.models.experience import Experience as Experience
 from safepeopleregistry_api_sdk.models.feature_index200_response import FeatureIndex200Response as FeatureIndex200Response
 from safepeopleregistry_api_sdk.models.feature_index200_response_data import FeatureIndex200ResponseData as FeatureIndex200ResponseData
@@ -209,6 +209,8 @@ from safepeopleregistry_api_sdk.models.registry_has_professional_registration im
 from safepeopleregistry_api_sdk.models.registry_has_training import RegistryHasTraining as RegistryHasTraining
 from safepeopleregistry_api_sdk.models.resolution import Resolution as Resolution
 from safepeopleregistry_api_sdk.models.sector import Sector as Sector
+from safepeopleregistry_api_sdk.models.sso_tenant import SsoTenant as SsoTenant
+from safepeopleregistry_api_sdk.models.sso_tenant_domain import SsoTenantDomain as SsoTenantDomain
 from safepeopleregistry_api_sdk.models.state import State as State
 from safepeopleregistry_api_sdk.models.subsidiary import Subsidiary as Subsidiary
 from safepeopleregistry_api_sdk.models.system_config import SystemConfig as SystemConfig

@@ -14,10 +14,10 @@
 
 import unittest
 
-from safepeopleregistry_api_sdk.models.entity_model_type import EntityModelType
+from safepeopleregistry_api_sdk.models.sso_tenant_domain import SsoTenantDomain
 
-class TestEntityModelType(unittest.TestCase):
-    """EntityModelType unit test stubs"""
+class TestSsoTenantDomain(unittest.TestCase):
+    """SsoTenantDomain unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,28 +25,27 @@ class TestEntityModelType(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> EntityModelType:
-        """Test EntityModelType
+    def make_instance(self, include_optional) -> SsoTenantDomain:
+        """Test SsoTenantDomain
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `EntityModelType`
+        # uncomment below to create an instance of `SsoTenantDomain`
         """
-        model = EntityModelType()
+        model = SsoTenantDomain()
         if include_optional:
-            return EntityModelType(
+            return SsoTenantDomain(
                 id = 1,
-                name = 'Decision Models',
-                created_at = '2025-06-25T12:00Z',
-                updated_at = '2025-06-25T12:00Z'
+                sso_tenant_id = 1,
+                domain = 'acme.com'
             )
         else:
-            return EntityModelType(
+            return SsoTenantDomain(
         )
         """
 
-    def testEntityModelType(self):
-        """Test EntityModelType"""
+    def testSsoTenantDomain(self):
+        """Test SsoTenantDomain"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

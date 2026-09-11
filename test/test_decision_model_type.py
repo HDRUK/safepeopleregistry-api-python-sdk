@@ -14,10 +14,10 @@
 
 import unittest
 
-from safepeopleregistry_api_sdk.models.entity_model import EntityModel
+from safepeopleregistry_api_sdk.models.decision_model_type import DecisionModelType
 
-class TestEntityModel(unittest.TestCase):
-    """EntityModel unit test stubs"""
+class TestDecisionModelType(unittest.TestCase):
+    """DecisionModelType unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,35 +25,28 @@ class TestEntityModel(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> EntityModel:
-        """Test EntityModel
+    def make_instance(self, include_optional) -> DecisionModelType:
+        """Test DecisionModelType
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `EntityModel`
+        # uncomment below to create an instance of `DecisionModelType`
         """
-        model = EntityModel()
+        model = DecisionModelType()
         if include_optional:
-            return EntityModel(
+            return DecisionModelType(
                 id = 1,
-                name = 'Data Processing Model',
-                description = 'This model processes data based on predefined rules.',
-                entity_model_type_id = 2,
-                calls_file = True,
-                file_path = '/path/to/file',
-                calls_operation = False,
-                operation = 'processData',
-                active = 1,
+                name = 'Decision Models',
                 created_at = '2025-06-25T12:00Z',
                 updated_at = '2025-06-25T12:00Z'
             )
         else:
-            return EntityModel(
+            return DecisionModelType(
         )
         """
 
-    def testEntityModel(self):
-        """Test EntityModel"""
+    def testDecisionModelType(self):
+        """Test DecisionModelType"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

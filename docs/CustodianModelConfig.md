@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **id** | **int** | Model primary key | [optional] 
 **created_at** | **str** |  | [optional] 
 **updated_at** | **str** |  | [optional] 
-**entity_model_id** | **int** |  | [optional] 
+**decision_model_id** | **int** |  | [optional] 
 **active** | **bool** |  | [optional] 
 **custodian_id** | **int** |  | [optional] 
 

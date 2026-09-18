@@ -19,7 +19,7 @@ from setuptools import setup, find_packages  # noqa: H301
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 NAME = "safepeopleregistry-api-sdk"
-VERSION = "1.36.0"
+VERSION = "1.36.1"
 PYTHON_REQUIRES = ">= 3.10"
 REQUIRES = [
     "urllib3 >= 2.6.3, < 3.0.0",

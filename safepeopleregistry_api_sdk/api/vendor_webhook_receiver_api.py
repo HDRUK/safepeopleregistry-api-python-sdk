@@ -96,7 +96,7 @@ class VendorWebhookReceiverApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "VendorWebhookReceiverReceive200Response",
-            '400': "VendorWebhookReceiverReceive400Response",
+            '400': "OrganisationsAppointSro400Response",
             '500': "VendorWebhookReceiverReceive500Response",
         }
         response_data = self.api_client.call_api(
@@ -168,7 +168,7 @@ class VendorWebhookReceiverApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "VendorWebhookReceiverReceive200Response",
-            '400': "VendorWebhookReceiverReceive400Response",
+            '400': "OrganisationsAppointSro400Response",
             '500': "VendorWebhookReceiverReceive500Response",
         }
         response_data = self.api_client.call_api(
@@ -240,7 +240,7 @@ class VendorWebhookReceiverApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "VendorWebhookReceiverReceive200Response",
-            '400': "VendorWebhookReceiverReceive400Response",
+            '400': "OrganisationsAppointSro400Response",
             '500': "VendorWebhookReceiverReceive500Response",
         }
         response_data = self.api_client.call_api(

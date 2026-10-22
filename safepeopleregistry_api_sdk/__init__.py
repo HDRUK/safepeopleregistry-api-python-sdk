@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.36.1"
+__version__ = "1.37.0"
 
 # Define package exports
 __all__ = [
@@ -23,6 +23,7 @@ __all__ = [
     "ProjectUsersApi",
     "QueryApi",
     "VendorWebhookReceiverApi",
+    "OrganisationsApi",
     "ApiResponse",
     "ApiClient",
     "Configuration",
@@ -71,6 +72,13 @@ __all__ = [
     "OrganisationHasDepartment",
     "OrganisationHasFile",
     "OrganisationHasSubsidiary",
+    "OrganisationsAppointSro200Response",
+    "OrganisationsAppointSro400Response",
+    "OrganisationsAppointSro403Response",
+    "OrganisationsAppointSroRequest",
+    "OrganisationsInviteSro201Response",
+    "OrganisationsInviteSro409Response",
+    "OrganisationsInviteSroRequest",
     "PendingInvite",
     "Permission",
     "ProfessionalRegistration",
@@ -116,7 +124,6 @@ __all__ = [
     "ValidationLog",
     "ValidationLogComment",
     "VendorWebhookReceiverReceive200Response",
-    "VendorWebhookReceiverReceive400Response",
     "VendorWebhookReceiverReceive500Response",
     "WebhookEventTrigger",
 ]
@@ -127,6 +134,7 @@ from safepeopleregistry_api_sdk.api.feature_api import FeatureApi as FeatureApi
 from safepeopleregistry_api_sdk.api.project_users_api import ProjectUsersApi as ProjectUsersApi
 from safepeopleregistry_api_sdk.api.query_api import QueryApi as QueryApi
 from safepeopleregistry_api_sdk.api.vendor_webhook_receiver_api import VendorWebhookReceiverApi as VendorWebhookReceiverApi
+from safepeopleregistry_api_sdk.api.organisations_api import OrganisationsApi as OrganisationsApi
 
 # import ApiClient
 from safepeopleregistry_api_sdk.api_response import ApiResponse as ApiResponse
@@ -179,6 +187,13 @@ from safepeopleregistry_api_sdk.models.organisation_has_custodian_permission imp
 from safepeopleregistry_api_sdk.models.organisation_has_department import OrganisationHasDepartment as OrganisationHasDepartment
 from safepeopleregistry_api_sdk.models.organisation_has_file import OrganisationHasFile as OrganisationHasFile
 from safepeopleregistry_api_sdk.models.organisation_has_subsidiary import OrganisationHasSubsidiary as OrganisationHasSubsidiary
+from safepeopleregistry_api_sdk.models.organisations_appoint_sro200_response import OrganisationsAppointSro200Response as OrganisationsAppointSro200Response
+from safepeopleregistry_api_sdk.models.organisations_appoint_sro400_response import OrganisationsAppointSro400Response as OrganisationsAppointSro400Response
+from safepeopleregistry_api_sdk.models.organisations_appoint_sro403_response import OrganisationsAppointSro403Response as OrganisationsAppointSro403Response
+from safepeopleregistry_api_sdk.models.organisations_appoint_sro_request import OrganisationsAppointSroRequest as OrganisationsAppointSroRequest
+from safepeopleregistry_api_sdk.models.organisations_invite_sro201_response import OrganisationsInviteSro201Response as OrganisationsInviteSro201Response
+from safepeopleregistry_api_sdk.models.organisations_invite_sro409_response import OrganisationsInviteSro409Response as OrganisationsInviteSro409Response
+from safepeopleregistry_api_sdk.models.organisations_invite_sro_request import OrganisationsInviteSroRequest as OrganisationsInviteSroRequest
 from safepeopleregistry_api_sdk.models.pending_invite import PendingInvite as PendingInvite
 from safepeopleregistry_api_sdk.models.permission import Permission as Permission
 from safepeopleregistry_api_sdk.models.professional_registration import ProfessionalRegistration as ProfessionalRegistration
@@ -224,7 +239,6 @@ from safepeopleregistry_api_sdk.models.validation_check import ValidationCheck a
 from safepeopleregistry_api_sdk.models.validation_log import ValidationLog as ValidationLog
 from safepeopleregistry_api_sdk.models.validation_log_comment import ValidationLogComment as ValidationLogComment
 from safepeopleregistry_api_sdk.models.vendor_webhook_receiver_receive200_response import VendorWebhookReceiverReceive200Response as VendorWebhookReceiverReceive200Response
-from safepeopleregistry_api_sdk.models.vendor_webhook_receiver_receive400_response import VendorWebhookReceiverReceive400Response as VendorWebhookReceiverReceive400Response
 from safepeopleregistry_api_sdk.models.vendor_webhook_receiver_receive500_response import VendorWebhookReceiverReceive500Response as VendorWebhookReceiverReceive500Response
 from safepeopleregistry_api_sdk.models.webhook_event_trigger import WebhookEventTrigger as WebhookEventTrigger
 

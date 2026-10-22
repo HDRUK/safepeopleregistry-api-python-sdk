@@ -14,10 +14,10 @@
 
 import unittest
 
-from safepeopleregistry_api_sdk.models.vendor_webhook_receiver_receive400_response import VendorWebhookReceiverReceive400Response
+from safepeopleregistry_api_sdk.models.organisations_appoint_sro400_response import OrganisationsAppointSro400Response
 
-class TestVendorWebhookReceiverReceive400Response(unittest.TestCase):
-    """VendorWebhookReceiverReceive400Response unit test stubs"""
+class TestOrganisationsAppointSro400Response(unittest.TestCase):
+    """OrganisationsAppointSro400Response unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,25 +25,25 @@ class TestVendorWebhookReceiverReceive400Response(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> VendorWebhookReceiverReceive400Response:
-        """Test VendorWebhookReceiverReceive400Response
+    def make_instance(self, include_optional) -> OrganisationsAppointSro400Response:
+        """Test OrganisationsAppointSro400Response
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `VendorWebhookReceiverReceive400Response`
+        # uncomment below to create an instance of `OrganisationsAppointSro400Response`
         """
-        model = VendorWebhookReceiverReceive400Response()
+        model = OrganisationsAppointSro400Response()
         if include_optional:
-            return VendorWebhookReceiverReceive400Response(
+            return OrganisationsAppointSro400Response(
                 message = 'Invalid argument(s)'
             )
         else:
-            return VendorWebhookReceiverReceive400Response(
+            return OrganisationsAppointSro400Response(
         )
         """
 
-    def testVendorWebhookReceiverReceive400Response(self):
-        """Test VendorWebhookReceiverReceive400Response"""
+    def testOrganisationsAppointSro400Response(self):
+        """Test OrganisationsAppointSro400Response"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

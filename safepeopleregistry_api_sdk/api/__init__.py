@@ -6,4 +6,5 @@ from safepeopleregistry_api_sdk.api.feature_api import FeatureApi
 from safepeopleregistry_api_sdk.api.project_users_api import ProjectUsersApi
 from safepeopleregistry_api_sdk.api.query_api import QueryApi
 from safepeopleregistry_api_sdk.api.vendor_webhook_receiver_api import VendorWebhookReceiverApi
+from safepeopleregistry_api_sdk.api.organisations_api import OrganisationsApi
 

@@ -50,6 +50,7 @@ class TestCustodianHasProjectOrganisation(unittest.TestCase):
                         id = 1, 
                         created_at = '2023-10-10T15:03:00Z', 
                         updated_at = '2023-10-10T16:03:00Z', 
+                        status_changed_at = '2023-10-11T09:00:00Z', 
                         organisation_name = 'An Organisation Ltd', 
                         address_1 = '123 Organisation Road', 
                         address_2 = 'Other address line', 

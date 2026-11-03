@@ -17,8 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
+from datetime import date, datetime
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -34,8 +34,12 @@ class Affiliation(BaseModel):
     organisation_id: Optional[StrictInt] = Field(default=None, description="Organisational link", json_schema_extra={"examples": [1]})
     member_id: Optional[StrictStr] = Field(default=None, description="Member ID UUID", json_schema_extra={"examples": ["325987-skdjfh283429-lkfsfdh"]})
     relationship: Optional[StrictStr] = Field(default=None, description="Textual representation of affiliation relationship", json_schema_extra={"examples": ["employee"]})
-    var_from: Optional[StrictStr] = Field(default=None, description="Date affiliation commenced", alias="from", json_schema_extra={"examples": ["2023-01-12"]})
-    to: Optional[StrictStr] = Field(default=None, description="Date affiliation concluded", json_schema_extra={"examples": ["2024-12-01"]})
+    var_from: Optional[date] = Field(default=None, description="Date affiliation commenced", alias="from", json_schema_extra={"examples": ["2023-01-12"]})
+    to: Optional[date] = Field(default=None, description="Date affiliation ends (or ended). Null when there is no known end date", json_schema_extra={"examples": ["2024-12-01"]})
+    end_date_recorded_at: Optional[datetime] = Field(default=None, description="When the end date was recorded")
+    end_date_recorded_by: Optional[StrictInt] = Field(default=None, description="The user who recorded the end date")
+    end_date_source: Optional[StrictStr] = Field(default=None, description="Who recorded the end date. The organisation's date wins over the user's")
+    left_at: Optional[datetime] = Field(default=None, description="When the leaver flow ran for this affiliation")
     department: Optional[StrictStr] = Field(default=None, description="Department worked during affiliation", json_schema_extra={"examples": ["Research & Development"]})
     role: Optional[StrictStr] = Field(default=None, description="Role held during affiliation", json_schema_extra={"examples": ["Principal Investigator (PI)"]})
     email: Optional[StrictStr] = Field(default=None, description="Professional email held during affiliation", json_schema_extra={"examples": ["user@domain.com"]})
@@ -46,7 +50,17 @@ class Affiliation(BaseModel):
     verification_sent_at: Optional[datetime] = Field(default=None, description="Timestamp when verification code was sent", json_schema_extra={"examples": ["2025-09-18T12:45:00Z"]})
     verification_confirmed_at: Optional[datetime] = Field(default=None, description="Timestamp when verification was confirmed", json_schema_extra={"examples": ["2025-09-19T09:10:00Z"]})
     is_verified: Optional[StrictBool] = Field(default=None, description="Flag indicating if affiliation is verified", json_schema_extra={"examples": [True]})
-    __properties: ClassVar[List[str]] = ["id", "created_at", "updated_at", "organisation_id", "member_id", "relationship", "from", "to", "department", "role", "email", "ror", "registry_id", "current_employer", "verification_code", "verification_sent_at", "verification_confirmed_at", "is_verified"]
+    __properties: ClassVar[List[str]] = ["id", "created_at", "updated_at", "organisation_id", "member_id", "relationship", "from", "to", "end_date_recorded_at", "end_date_recorded_by", "end_date_source", "left_at", "department", "role", "email", "ror", "registry_id", "current_employer", "verification_code", "verification_sent_at", "verification_confirmed_at", "is_verified"]
+
+    @field_validator('end_date_source')
+    def end_date_source_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['user', 'organisation']):
+            raise ValueError("must be one of enum values ('user', 'organisation')")
+        return value
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -87,6 +101,31 @@ class Affiliation(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if to (nullable) is None
+        # and model_fields_set contains the field
+        if self.to is None and "to" in self.model_fields_set:
+            _dict['to'] = None
+
+        # set to None if end_date_recorded_at (nullable) is None
+        # and model_fields_set contains the field
+        if self.end_date_recorded_at is None and "end_date_recorded_at" in self.model_fields_set:
+            _dict['end_date_recorded_at'] = None
+
+        # set to None if end_date_recorded_by (nullable) is None
+        # and model_fields_set contains the field
+        if self.end_date_recorded_by is None and "end_date_recorded_by" in self.model_fields_set:
+            _dict['end_date_recorded_by'] = None
+
+        # set to None if end_date_source (nullable) is None
+        # and model_fields_set contains the field
+        if self.end_date_source is None and "end_date_source" in self.model_fields_set:
+            _dict['end_date_source'] = None
+
+        # set to None if left_at (nullable) is None
+        # and model_fields_set contains the field
+        if self.left_at is None and "left_at" in self.model_fields_set:
+            _dict['left_at'] = None
+
         return _dict
 
     @classmethod
@@ -107,6 +146,10 @@ class Affiliation(BaseModel):
             "relationship": obj.get("relationship"),
             "from": obj.get("from"),
             "to": obj.get("to"),
+            "end_date_recorded_at": obj.get("end_date_recorded_at"),
+            "end_date_recorded_by": obj.get("end_date_recorded_by"),
+            "end_date_source": obj.get("end_date_source"),
+            "left_at": obj.get("left_at"),
             "department": obj.get("department"),
             "role": obj.get("role"),
             "email": obj.get("email"),

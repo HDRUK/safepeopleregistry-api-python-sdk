@@ -30,6 +30,7 @@ class Organisation(BaseModel):
     id: Optional[StrictInt] = Field(default=None, description="Model primary key", json_schema_extra={"examples": [1]})
     created_at: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["2023-10-10T15:03:00Z"]})
     updated_at: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["2023-10-10T16:03:00Z"]})
+    status_changed_at: Optional[StrictStr] = Field(default=None, description="When the organisation's status last changed. Only returned by the organisations index.", json_schema_extra={"examples": ["2023-10-11T09:00:00Z"]})
     organisation_name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["An Organisation Ltd"]})
     address_1: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["123 Organisation Road"]})
     address_2: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["Other address line"]})
@@ -76,7 +77,7 @@ class Organisation(BaseModel):
     ico_registration_id: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ABC1234"]})
     ico_date_registered: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["2026-12-01"]})
     ico_expiry_date: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["2026-12-01"]})
-    __properties: ClassVar[List[str]] = ["id", "created_at", "updated_at", "organisation_name", "address_1", "address_2", "town", "county", "country", "postcode", "lead_applicant_organisation_name", "lead_applicant_email", "organisation_unique_id", "applicant_names", "funders_and_sponsors", "sub_license_arrangements", "verified", "dsptk_ods_code", "dsptk_certified", "dsptk_expiry_date", "iso_27001_certified", "iso_27001_certification_num", "iso_expiry_date", "ce_certified", "ce_certification_num", "ce_expiry_date", "ce_plus_certified", "ce_plus_certification_num", "ce_plus_expiry_date", "ce_or_iso_certified", "ce_plus_or_iso_certified", "idvt_result", "idvt_result_perc", "idvt_errors", "idvt_completed_at", "companies_house_no", "sector_id", "ror_id", "website", "smb_status", "organisation_size", "unclaimed", "system_approved", "ods_id", "dsptk_status", "dsptk_date_last_published", "ico_registration_id", "ico_date_registered", "ico_expiry_date"]
+    __properties: ClassVar[List[str]] = ["id", "created_at", "updated_at", "status_changed_at", "organisation_name", "address_1", "address_2", "town", "county", "country", "postcode", "lead_applicant_organisation_name", "lead_applicant_email", "organisation_unique_id", "applicant_names", "funders_and_sponsors", "sub_license_arrangements", "verified", "dsptk_ods_code", "dsptk_certified", "dsptk_expiry_date", "iso_27001_certified", "iso_27001_certification_num", "iso_expiry_date", "ce_certified", "ce_certification_num", "ce_expiry_date", "ce_plus_certified", "ce_plus_certification_num", "ce_plus_expiry_date", "ce_or_iso_certified", "ce_plus_or_iso_certified", "idvt_result", "idvt_result_perc", "idvt_errors", "idvt_completed_at", "companies_house_no", "sector_id", "ror_id", "website", "smb_status", "organisation_size", "unclaimed", "system_approved", "ods_id", "dsptk_status", "dsptk_date_last_published", "ico_registration_id", "ico_date_registered", "ico_expiry_date"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -132,6 +133,7 @@ class Organisation(BaseModel):
             "id": obj.get("id"),
             "created_at": obj.get("created_at"),
             "updated_at": obj.get("updated_at"),
+            "status_changed_at": obj.get("status_changed_at"),
             "organisation_name": obj.get("organisation_name"),
             "address_1": obj.get("address_1"),
             "address_2": obj.get("address_2"),

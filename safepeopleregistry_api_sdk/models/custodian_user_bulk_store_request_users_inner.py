@@ -39,8 +39,8 @@ class CustodianUserBulkStoreRequestUsersInner(BaseModel):
         if value is None:
             return value
 
-        if value not in set(['CUSTODIAN_ADMIN', 'CUSTODIAN_APPROVER']):
-            raise ValueError("must be one of enum values ('CUSTODIAN_ADMIN', 'CUSTODIAN_APPROVER')")
+        if value not in set(['CUSTODIAN_ADMIN', 'CUSTODIAN_APPROVER', 'CUSTODIAN_READ_ONLY']):
+            raise ValueError("must be one of enum values ('CUSTODIAN_ADMIN', 'CUSTODIAN_APPROVER', 'CUSTODIAN_READ_ONLY')")
         return value
 
     model_config = ConfigDict(
